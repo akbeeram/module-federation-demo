@@ -1,6 +1,8 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { BillingUtil } from './billing-util';
+import { countReducer } from '../store/counter.reducer';
+import { StoreModule } from '@ngrx/store';
 
 @Component({
   selector: 'app-root',

@@ -3,7 +3,9 @@ import { appConfig } from './app/app.config';
 import { App } from './app/app';
 import { Billing } from './app/billing/billing';
 import { createCustomElement } from '@angular/elements';
+import { provideStore } from '@ngrx/store';
 
+// Create a custom element for React Host
 // bootstrapApplication(Billing, appConfig)
 // .then(appRef => {
 //   const el = createCustomElement(Billing, {
@@ -13,5 +15,17 @@ import { createCustomElement } from '@angular/elements';
 //     customElements.define('app-billing', el);
 //   }
 // })
-bootstrapApplication(Billing, appConfig)
-  .catch((err) => console.error(err));
+
+// bootstrapApplication(Billing, appConfig)
+//   .catch((err) => console.error(err));
+
+(async () => {
+  // Dynamically load the store from the host
+  const storeModule = await import('ngShoppingHost/CounterStore');
+  appConfig.providers.push(
+    provideStore({count: storeModule.countReducer})
+  );
+  
+  bootstrapApplication(App, appConfig)
+    .catch((err) => console.error(err));
+})();
