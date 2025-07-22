@@ -1,0 +1,20 @@
+<div class="tiles">
+    <div class="tile">
+        <ng-template #ngBillingRemote></ng-template>
+    </div>
+    <div class="tile">
+        <ng-template #ngOrdersRemote></ng-template>
+    </div>
+</div>
+<div class="tiles">
+    <div class="tile">
+        <app-wc-wrapper />
+    </div>
+    <div class="tile">
+        <app-react-wrapper />
+    </div>
+</div>
+<h3>Events:</h3>
+<ng-container *ngFor="let item of messages">
+{{item}}<br />
+</ng-container>
