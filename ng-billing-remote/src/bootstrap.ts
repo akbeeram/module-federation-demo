@@ -5,7 +5,7 @@ import { Billing } from './app/billing/billing';
 import { createCustomElement } from '@angular/elements';
 import { provideStore } from '@ngrx/store';
 
-// Create a custom element for React Host
+// Enable to load the angular remote in a react host app
 // bootstrapApplication(Billing, appConfig)
 // .then(appRef => {
 //   const el = createCustomElement(Billing, {

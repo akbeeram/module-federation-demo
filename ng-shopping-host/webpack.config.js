@@ -9,6 +9,7 @@ module.exports = withModuleFederationPlugin({
   },
   exposes: {
     './CounterStore': './src/store',
+    './BillingUtil': './src/app/billing-util.ts'
   },
   shared: {
     ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
