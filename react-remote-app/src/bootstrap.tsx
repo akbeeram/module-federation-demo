@@ -3,4 +3,6 @@ import { createRoot } from "react-dom/client";
 import ReactRemoteApp from './ReactRemoteApp';
 
 const root = createRoot(document.getElementById('root')!);
-root.render(<ReactRemoteApp />);
+root.render(
+    <Provider store={store}><ReactRemoteApp /></Provider>
+);
