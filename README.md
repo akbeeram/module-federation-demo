@@ -40,3 +40,31 @@ Using this repo, we shall setup:
 - In `ng-billing-remote/src/bootstrap.ts`, enable to load the angular remote in a react host app. This loads `ng-billing-remote` as a angular element/custom element.
 - Once you open `https://localhost:5005`, you should see React remote app, web-component app and angular remote app all loading in react host.
 
+### Points to note
+The default angular/react project creation didnt work for webpack module federation config. So the repos needed some tweaking. The below steps are only for info/reference. Doing `npm install` in each repo will pull all the required dependencies. However, if you want to setup from scratch, you can use the below steps.
+
+#### Angular
+- Creating a new app with `ng new` doesnt give you the `webpack.config.js` file. So we need to add it manually.
+- To do this, we run the command `ng add @angular-architects/module-federation`. This will create the `webpack.config.js` file and update other json files.
+- For NGRx store setup, use `npm i -D @ngrx/store @ngrx/effects @ngrx/store-devtools` in both host and remote apps.
+
+#### React
+- For this demo, we created a react app from scratch with the following commands.
+- After a new folder is created, run:
+    - `npm i -D react react-dom @types/react @types/react-dom` to install react and react-dom along with its types.
+    - `npm i -D webpack webpack-dev-server webpack-cli html-webpack-plugin` to install webpack and related deps to run the app in webpack-dev-server.
+    - `npm i -D babel-loader @babel/core @babel/preset-env @babel/preset-react @babel/preset-typescript` to install babel related plugins for transpiling typescript
+    - Add `{"presets": ["@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"]}` in a `.babelrc` file.
+    - For Redux setup, use `npm i -D redux react-redux @reduxjs/toolkit` in both host and remote apps.
+
+### Additional Links
+- Angular
+    - [Angular Architects Module Federation](https://www.angulararchitects.io/en/)
+- Web Components
+    - [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components)
+    - [Custom Events](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent)
+    - Libraries to create Custom Components: [Stencil JS](https://stenciljs.com/), [Lit](https://lit.dev/docs/v1/lit-html/introduction/)
+- Webpack
+    - [Module Federation](https://webpack.js.org/concepts/module-federation/#root)
+
+
