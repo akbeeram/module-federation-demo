@@ -11,8 +11,8 @@ const WcWrapper = () => {
         script.async = true;
         script.onload = () => {
             const el = document.createElement('users-app');
-            (el as any).setAttribute('usersData', 'This is data from React HOST');
-            eventBus.emit('outgoingData', 'This is data from React HOST');
+            (el as any).setAttribute('usersData', 'This is data from React HOST for WC');
+            eventBus.emit('outgoingData', 'This is data from React HOST for WC');
             el.addEventListener('onWcReceviedData', (e) => {
                 console.log(e);
                 eventBus.emit('incomingData', e);

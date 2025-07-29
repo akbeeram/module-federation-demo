@@ -10,8 +10,8 @@ const NgWrapper = () => {
         script.async = true;
         script.onload = () => {
             const el = document.createElement('app-orders');
-            (el as any).ordersData = 'This is data from React HOST';
-            eventBus.emit('outgoingData', 'This is data from React HOST');
+            (el as any).ordersData = 'This is data from React HOST for NG';
+            eventBus.emit('outgoingData', 'This is data from React HOST for NG');
             el.addEventListener('onDataReceived', (e) => {
                 console.log(e);
                 eventBus.emit('incomingData', e);

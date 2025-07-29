@@ -16,7 +16,7 @@ const ReactRemoteApp = React.lazy(() => import('reactRemoteApp/ReactRemoteApp'))
 const ReactHostApp = () => {
 
     useEffect(() => {
-        eventBus.emit('outgoingData', 'This is data from React HOST');
+        eventBus.emit('outgoingData', 'This is data from React HOST for React Remote');
     }, []);
 
     return <Provider store={store}>
