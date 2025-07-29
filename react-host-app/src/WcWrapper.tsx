@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { eventBus } from './utils/event-bus';
 
 const WcWrapper = () => {
     const ref = useRef(null);
@@ -8,19 +9,23 @@ const WcWrapper = () => {
         script.src = "./assets/usersApp.js";
         script.type = "module";
         script.async = true;
-        script.onload = (e) => {
+        script.onload = () => {
             const el = document.createElement('users-app');
-            el.setAttribute('usersData', 'This is input from React Host');
-      window.addEventListener('wcUsersAppEvent', (e: any) => {
-        console.log(e?.detail);
-      })
-            if(ref.current) {
-                (ref.current as HTMLElement).appendChild(el);
+            (el as any).setAttribute('usersData', 'This is data from React HOST');
+            eventBus.emit('outgoingData', 'This is data from React HOST');
+            el.addEventListener('onWcReceviedData', (e) => {
+                console.log(e);
+                eventBus.emit('incomingData', e);
+            })
+            if (ref?.current) {
+                (ref.current as any).appendChild(el);
             }
         }
         document.head.appendChild(script);
-    },[]);
+    }, []);
 
-    return <div ref={ref} />
+    return <div ref={ref}></div>
+
 }
+
 export default WcWrapper;

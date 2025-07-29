@@ -1,0 +1,9 @@
+.remote-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.remote-container-msg {
+    margin: 0 0 1em 0;
+}

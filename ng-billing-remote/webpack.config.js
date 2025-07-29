@@ -7,9 +7,12 @@ module.exports = withModuleFederationPlugin({
   exposes: {
     './BillingComponent': './src/app/billing/billing.ts',
   },
-
+  remotes: {
+    ngShoppingHost: 'http://localhost:5000/remoteEntry.js'
+  },
   shared: {
     ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
+    "@ngrx/store": { singleton: true, strictVersion: true },
   },
 
 });

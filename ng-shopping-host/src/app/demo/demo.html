@@ -1,20 +1,53 @@
-<div class="tiles">
-    <div class="tile">
-        <ng-template #ngBillingRemote></ng-template>
+<div class="container">
+    <div class="tiles">
+        <div class="tiles__store">
+            <div>Count at Angular Host Store: {{count}}</div>
+            <div>
+                <button (click)="incrementCount()">Increment</button>
+                &nbsp;
+                <button (click)="decrementCount()">Decrement</button>
+            </div>
+        </div>
+        <div class="tile">
+            <div class="tile__img">
+                <img src="./assets/images/angular-logo.png" width="80px" />
+            </div>
+            <div class="tile__content">
+                <ng-template #ngBillingRemote></ng-template>
+            </div>
+            <!-- <div class="send-icon" (click)="sendUpdateToRemote('NG')">
+                <img src="./assets/images/send-icon.png" width="25px" />
+            </div> -->
+        </div>
+        <div class="tile">
+            <div class="tile__img">
+                <img src="./assets/images/wc-logo.svg" width="80px" />
+            </div>
+            <div class="tile__content">
+                <app-wc-wrapper />
+            </div>
+            <!-- <div class="send-icon" (click)="sendUpdateToRemote('WC')">
+                <img src="./assets/images/send-icon.png" width="25px" />
+            </div> -->
+        </div>
+        <div class="tile">
+            <div class="tile__img">
+                <img src="./assets/images/react-logo.png" width="80px" />
+            </div>
+            <div class="tile__content">
+                <app-react-wrapper />
+            </div>
+            <!-- <div class="send-icon" (click)="sendUpdateToRemote('REACT')">
+                <img src="./assets/images/send-icon.png" width="25px" />
+            </div> -->
+        </div>
     </div>
-    <div class="tile">
-        <ng-template #ngOrdersRemote></ng-template>
-    </div>
+    <aside>
+        <b>Events:</b>
+        <div *ngFor="let item of messages()">
+            <span class="outgoing-icon" *ngIf="item?.type == 'O'">&#8599;</span>
+            <span class="incoming-icon" *ngIf="item?.type == 'I'">&#8601;</span>
+            {{item?.msg}}
+        </div>
+    </aside>
 </div>
-<div class="tiles">
-    <div class="tile">
-        <app-wc-wrapper />
-    </div>
-    <div class="tile">
-        <app-react-wrapper />
-    </div>
-</div>
-<h3>Events:</h3>
-<ng-container *ngFor="let item of messages">
-{{item}}<br />
-</ng-container>

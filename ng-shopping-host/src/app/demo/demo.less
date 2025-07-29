@@ -1,12 +1,62 @@
 @import url('./../../styles.less');
 
-.tiles {
+.container {
     .flex();
+    align-items: flex-start;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    margin-top: 1em;
+
+    aside {
+        flex: 1;
+        padding: 1em;
+        display: flex;
+        align-items: flex-start;
+        flex: 1;
+        flex-direction: column;
+    }
+
+    .tiles {
+        flex: 2;
+    }
+}
+
+.tiles {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid lightgray;
+    padding: 1em;
+
+    &__store {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid lightgray;
+        padding-bottom: 1em;
+        margin-bottom: 1em;
+    }
+
     .tile {
         .flex();
+        position: relative;
         flex: 1;
-        border: 1px solid red;
-        margin: 2em;
-        padding: 2em;
+        box-shadow: 0px 0px 5px 2px #d9d9d9;
+        margin: 1em;
+        padding: 1em;
+        border-radius: 5px;
+
+        &__img {
+            flex: 1;
+        }
+
+        &__content {
+            flex: 3;
+        }
+
+        &:hover {
+            .send-icon {
+                opacity: 1;
+            }
+        }
     }
 }

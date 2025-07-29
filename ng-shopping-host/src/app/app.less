@@ -1,13 +1,32 @@
 @import url('./../styles.less');
-nav.links {
+
+header {
     .flex();
+}
+
+.links {
+    .flex();
+
+    flex: 1;
+
+    &__brand {
+        .flex();
+        margin-right: 1em;
+
+        div {
+            img {
+                margin-right: 1em;
+            }
+        }
+    }
+
     a {
         .flex();
         flex: 1;
-        margin: 1em;
-        border: 1px solid lightgray;
-        padding: 2em;
+        padding: 1em;
+        border-radius: 5px;
         transition: all 0.3s ease;
+
         &:hover {
             background: lightgray;
         }

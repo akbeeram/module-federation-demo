@@ -6,12 +6,7 @@ export const routes: Routes = [
     {
         path: 'billing',
         loadComponent: () => import('ngBillingRemote/BillingComponent')
-        .then(m => m.Billing)
-    },
-    {
-        path: 'orders',
-        loadComponent: () => import('ngOrdersRemote/OrdersComponent')
-        .then(m => m.Orders)
+            .then(m => m.Billing)
     },
     {
         path: 'react',

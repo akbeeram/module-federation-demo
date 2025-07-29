@@ -33,7 +33,13 @@
 						"outputPath": "dist/ng-orders-remote",
 						"index": "src\\index.html",
 						"extraWebpackConfig": "webpack.config.js",
-						"commonChunk": false
+						"commonChunk": false,
+						"vendorChunk": false,
+						"namedChunks": false,
+						"sourceMap": false,
+						"buildOptimizer": false,
+						"extractLicenses": false,
+						"outputHashing": "none"
 					},
 					"configurations": {
 						"production": {
@@ -49,7 +55,7 @@
 									"maximumError": "8kB"
 								}
 							],
-							"outputHashing": "all",
+							"outputHashing": "none",
 							"extraWebpackConfig": "webpack.prod.config.js"
 						},
 						"development": {
@@ -99,5 +105,8 @@
 				}
 			}
 		}
+	},
+	"cli": {
+		"analytics": false
 	}
 }

@@ -1,6 +1,6 @@
 class UsersApp extends HTMLElement {
     static get observedAttributes() {
-        return ["usersData"];
+        return ['usersData'];
     }
     constructor() {
         super();
@@ -8,21 +8,22 @@ class UsersApp extends HTMLElement {
         const divEl = document.createElement('div');
         divEl.innerHTML = `
         <p>Hello, this is from Web component!<p>
-        <span id="msg"></span>
-        <button id="sendBtn">Confirm</button>
+        <div id="msg"></div>
+        <button id="btn">Send to Host</button>
         `;
         shadowDOM.appendChild(divEl);
     }
     connectedCallback() {
-        let data = this.getAttribute('usersData');
-        console.log('Web-component:::',data);
+        const data = this.getAttribute('usersData');
+        console.log(`WC:::${data}`);
         this.shadowRoot.getElementById('msg').innerHTML = data;
-        this.shadowRoot.getElementById('sendBtn').addEventListener('click', (e) => {
-            this.dispatchEvent(new CustomEvent("wcUsersAppEvent", {
-                detail: "Ok, received, launch to moon!!",
-                bubbles: true, composed: true
-            }));
-        });
+        this.shadowRoot.getElementById('btn').addEventListener('click', () => {
+            this.dispatchEvent(new CustomEvent(
+                'onWcReceviedData', {
+                    detail: 'Ok! Data received at WC'
+                }
+            ));
+        })
     }
 }
 if(!customElements.get('users-app')) {

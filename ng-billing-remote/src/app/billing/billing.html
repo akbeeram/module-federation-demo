@@ -1,6 +1,19 @@
-<p>ng billing works!</p>
-<ng-container *ngIf="billingData">
-    {{billingData}}
-    <br />
-    <button (click)="handleBtnclick()">Confirm</button>
-</ng-container>
+<h4>Angular Remote App</h4>
+<div class="container">
+    <div>
+        {{billingData}}
+    </div>
+    <div>
+        Store Data at Host:<b>{{count}}</b>
+    </div>
+</div>
+<div class="btnDiv">
+    <div class="btnDiv__half">
+        <button (click)="sendToHost()">Send to Host</button>
+    </div>
+    <div class="btnDiv__half btnDiv__half__right">
+        <button (click)="incCount()">Increment</button>
+        &nbsp;
+        <button (click)="decCount()">Decrement</button>
+    </div>
+</div>

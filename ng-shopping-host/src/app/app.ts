@@ -10,10 +10,11 @@ import { BillingUtil } from './billing-util';
   providers: [BillingUtil]
 })
 export class App implements OnInit {
-  constructor(private billingUtil: BillingUtil) {}
+  constructor(private billingUtil: BillingUtil) { }
+
   protected readonly title = signal('ng-shopping-host');
 
   public ngOnInit(): void {
-      (window as any)['BillingUtilService'] = this.billingUtil;
+    (window as any)['BillingUtilService'] = this.billingUtil;
   }
 }
